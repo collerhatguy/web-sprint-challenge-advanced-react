@@ -57,7 +57,7 @@ const CheckoutForm = (props) => {
           Zip:
           <input name="zip" value={values.zip} onChange={change} />
         </label>
-        <button>Checkout</button>
+        <button data-testid="submit">Checkout</button>
       </form>
 
       {!err && (
@@ -68,11 +68,11 @@ const CheckoutForm = (props) => {
           <p>Your new green friends will be shipped to:</p>
           <br />
           <br />
-          <p>
+          <p data-testid="nameDisplay">
             {values.firstName} {values.lastName}
           </p>
-          <p>{values.address}</p>
-          <p>
+          <p data-testid="addressDisplay">{values.address}</p>
+          <p data-testid="address2Display">
             {values.city}, {values.state} {values.zip}
           </p>
         </div>
