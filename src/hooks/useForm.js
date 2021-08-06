@@ -6,12 +6,12 @@ const useForm = (initialValues) => {
     const [err, setErr] = useState(true);
     const [values, setValues] = useState(initialValues);
   
-    const change = (e) => {
+    const change = e => {
         const { name, value } = e.target;
         setValues({ ...values, [name]: value });
     };
     
-    const submit = (e) => {
+    const submit = e => {
         e.preventDefault();
         setErr(false);
     };
