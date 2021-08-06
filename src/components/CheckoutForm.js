@@ -15,18 +15,18 @@ const initialValue = {
 // and replace the necessary stateful logic from CheckoutForm with the hook
 
 const CheckoutForm = (props) => {
-  const [handleChanges, handleSubmit, showSuccessMessage, values] = useForm(initialValue);
+  const [change, submit, err, values] = useForm(initialValue);
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={submit}>
         <h2>Checkout Form</h2>
         <label>
           First Name:
           <input
             name="firstName"
             value={values.firstName}
-            onChange={handleChanges}
+            onChange={change}
           />
         </label>
         <label>
@@ -34,7 +34,7 @@ const CheckoutForm = (props) => {
           <input
             name="lastName"
             value={values.lastName}
-            onChange={handleChanges}
+            onChange={change}
           />
         </label>
         <label>
@@ -42,25 +42,25 @@ const CheckoutForm = (props) => {
           <input
             name="address"
             value={values.address}
-            onChange={handleChanges}
+            onChange={change}
           />
         </label>
         <label>
           City:
-          <input name="city" value={values.city} onChange={handleChanges} />
+          <input name="city" value={values.city} onChange={change} />
         </label>
         <label>
           State:
-          <input name="state" value={values.state} onChange={handleChanges} />
+          <input name="state" value={values.state} onChange={change} />
         </label>
         <label>
           Zip:
-          <input name="zip" value={values.zip} onChange={handleChanges} />
+          <input name="zip" value={values.zip} onChange={change} />
         </label>
         <button>Checkout</button>
       </form>
 
-      {showSuccessMessage && (
+      {!err && (
         <div className="success-message" data-testid="successMessage">
           <p>
             You have ordered some plants! Woo-hoo! <span role="img">🎉</span>
